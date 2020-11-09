@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<script src="../lib/microapp.js"></script>
+<script>
+
+    /* *********************************************************************
+     * Microapp operational examples. Follow the docs for more detailed info
+     * *********************************************************************/
+
+    function finish() {
+        Ayoba.finish();
+    }
+
+    function sendMessage() {
+        Ayoba.sendMessage(document.getElementById("inputText").value);
+        Ayoba.finish();
+    }
+
+    function composeMessage() {
+        Ayoba.composeMessage(document.getElementById("inputText").value);
+        Ayoba.finish();
+    }
+
+
+    function getCanSendMessage() {
+        var canSendMessage = Ayoba.getCanSendMessage();
+        document.getElementById("inputText").value = canSendMessage
+        return canSendMessage
+    }
+
+
+    function getSelfJid() {
+        var selfJid = getURLParameter("jid")
+        document.getElementById("inputText").value = selfJid
+        return selfJid
+    }
+
+ 
+
+   
+</script>
+
+<body">
+    <center>
+        <font color="#ffc107">testing</font>
+    </center>
+    <br />
+    <div style="text-align:center;">
+        <input type="text" id="inputText">
+    </div>
+    <br />
+   
+   
+    <br />
+    
+    <br />
+    <div style="text-align:center;">
+        <input type="button" value="Send message" onClick="sendMessage()" />
+    </div>
+    <div style="text-align:center;">
+        <input type="button" value="Compose message" onClick="composeMessage()" />
+    </div>
+  
+    <div style="text-align:center;">
+        <input type="button" value="Get CanSendMessage" onClick="getCanSendMessage()" />
+    </div>
+
+    <div style="text-align:center;">
+    <input type="button" value="Get SelfJid" onClick="getSelfJid()" />
+</div>
+</body>
+
+</html>
